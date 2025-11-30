@@ -93,3 +93,8 @@ To address this case, you need to add a callback handler to the `onPartitionRevo
 This method is guaranteed to be called at the start of rebalancing process and of course, before `synchronization barrier` is reached.
 
 More importantly, `onPartitionRevoked` hook is called within a part of `poll()` thread (mentioned in this [docs](https://kafka.apache.org/26/javadoc/org/apache/kafka/clients/consumer/ConsumerRebalanceListener.html)). So you can safely assure that no processing is in progress when this hook is called.
+
+## Warning
+Although Kafka generally holds revocation during rebalancing when a consumer is still processing messages, there are edge cases that can still cause duplicate message processing. For example, if a consumer crashes while processing a message, that message may be processed twice.
+
+My recommendation is not to rely solely on this guarantee. If your application requires exactly-once processing semantics, always implement deduplication logic in your business logic.
