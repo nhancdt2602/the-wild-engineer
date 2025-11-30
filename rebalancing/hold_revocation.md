@@ -4,7 +4,7 @@
 Rebalancing is one of the trickiest parts of Kafka protocol that might cause data loss or corruption if it is not handled correctly. One of the questions you might ask is:
 > What happens to processing thread (thread with poll() method) during rebalancing?
 
-I once wondered whether messages could beprocessed twice during rebalancing. Imagine the following scenario with `eager` rebalancing enabled:
+I once wondered whether messages could be processed twice during rebalancing. Imagine the following scenario with `eager` rebalancing enabled:
 
 1. There is 1 consumer `c0` in a group consuming messages from a topic with 2 partitions `p0` and `p1`
 2. A new consumer `c1` joins the group
