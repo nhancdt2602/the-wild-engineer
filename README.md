@@ -1,7 +1,8 @@
-# The Wild Kafka
+# The Wild Software Engineering
 
-A curated collection of my practical notes on Kafka.
+A curated collection of my practical notes on software engineering.
 
-## Contents
+# Contents
+## Kafka
 ### Rebalancing
-- [Does Kafka hold revocation during rebalancing when a consumer is still processing messages?](rebalancing/hold_revocation.md)
+- [Does Kafka hold revocation during rebalancing when a consumer is still processing messages?](kafka/rebalancing/hold_revocation.md)
